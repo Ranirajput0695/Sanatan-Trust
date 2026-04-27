@@ -1,11 +1,14 @@
 import React from 'react';
-import { Box, Container, Typography, Button, Grid } from '@mui/material';
+import { Box, Container, Typography, Button, Grid, Paper, Stack } from '@mui/material';
+import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Card from '../components/Card';
 import ContactForm from '../components/ContactForm';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import GroupsIcon from '@mui/icons-material/Groups';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const Home = () => {
   const programs = [
@@ -25,68 +28,89 @@ const Home = () => {
       title: "Dhyana & Yoga",
       description: "Traditional meditation techniques passed down through generations for mental peace.",
       icon: <VolunteerActivismIcon />,
-      color: "info"
+      color: "primary"
     }
   ];
 
+  const stats = [
+    { label: "Students Enrolled", value: "5000+" },
+    { label: "Courses Offered", value: "25+" },
+    { label: "Expert Gurus", value: "40+" },
+    { label: "Years of Legacy", value: "15+" }
+  ];
+
   return (
-    <Box>
+    <Box sx={{ bgcolor: 'background.default' }}>
       <Hero />
       
-      {/* Mission Section */}
-      <Box component="section" sx={{ py: 15, bgcolor: 'white' }}>
+
+
+      {/* SECTION: Mission */}
+      <Box component="section" sx={{ py: { xs: 10, md: 15 }, bgcolor: 'white' }}>
         <Container maxWidth="lg">
-          <Grid container spacing={10} sx={{ alignItems: 'center' }}>
+          <Grid container spacing={8} sx={{ alignItems: 'center' }}>
             <Grid item xs={12} md={6}>
               <Box sx={{ position: 'relative' }}>
-                <Box 
+                 <Paper 
+                  elevation={0}
                   sx={{ 
                     aspectRatio: '1/1', 
-                    bgcolor: 'rgba(255, 153, 51, 0.05)', 
-                    borderRadius: 10, 
+                    bgcolor: 'primary.light', 
+                    borderRadius: 8, 
                     display: 'flex', 
                     alignItems: 'center', 
                     justifyContent: 'center',
                     fontSize: '8rem',
-                    boxShadow: '0 30px 60px rgba(0,0,0,0.08)'
+                    boxShadow: '20px 20px 60px rgba(230, 81, 0, 0.1), -20px -20px 60px #ffffff',
+                    position: 'relative',
+                    zIndex: 2
                   }}
                 >
-                  🏛️
-                </Box>
-                <Box sx={{ position: 'absolute', top: -40, left: -40, width: 160, height: 160, bgcolor: 'rgba(19, 136, 8, 0.05)', borderRadius: '50%', filter: 'blur(40px)', zIndex: -1 }} />
-                <Box sx={{ position: 'absolute', bottom: -40, right: -40, width: 240, height: 240, bgcolor: 'rgba(0, 0, 128, 0.05)', borderRadius: '50%', filter: 'blur(60px)', zIndex: -1 }} />
+                  <AutoAwesomeIcon sx={{ fontSize: '10rem', color: 'white', opacity: 0.8 }} />
+                </Paper>
+                <Box sx={{ position: 'absolute', top: -30, left: -30, width: '100%', height: '100%', border: '2px solid', borderColor: 'secondary.light', borderRadius: 8, zIndex: 1 }} />
               </Box>
             </Grid>
             
             <Grid item xs={12} md={6}>
-              <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 'bold', letterSpacing: 2 }}>Our Purpose</Typography>
-              <Typography variant="h3" component="h2" sx={{ mb: 4, color: 'info.main', lineHeight: 1.2, fontFamily: 'Cinzel' }}>
-                Rooted in Tradition, <br />
-                <Box component="span" sx={{ color: 'primary.main' }}>Blooming for the Future</Box>
-              </Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3, fontSize: '1.1rem', lineHeight: 1.8 }}>
-                Sanatana Dharma Educational Trust is dedicated to the preservation and dissemination of the eternal wisdom of the Indian subcontinent. We believe that ancient knowledge holds the key to solving modern challenges.
-              </Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 5, fontSize: '1.1rem', lineHeight: 1.8 }}>
-                Our mission is to create a bridge between traditional Vedic scholarship and contemporary academic excellence, fostering a generation that is spiritually grounded and intellectually vibrant.
-              </Typography>
-              <Button variant="contained" color="primary" size="large" sx={{ boxShadow: 6 }}>
-                Read Full Mission
-              </Button>
+              <Stack spacing={3}>
+                <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 'bold', letterSpacing: 3 }}>Our Purpose</Typography>
+                <Typography variant="h2" sx={{ lineHeight: 1.1, fontFamily: 'Cinzel', fontWeight: 800 }}>
+                  Preserving the <Box component="span" sx={{ color: 'primary.main' }}>Eternal Flame</Box> of Wisdom
+                </Typography>
+                <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.1rem', lineHeight: 1.8 }}>
+                  Sanatana Dharma Educational Trust is dedicated to the preservation and dissemination of the eternal wisdom of the Indian subcontinent. We believe that ancient knowledge holds the key to solving modern challenges.
+                </Typography>
+                <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.1rem', lineHeight: 1.8 }}>
+                  Our mission is to create a bridge between traditional Vedic scholarship and contemporary academic excellence, fostering a generation that is spiritually grounded and intellectually vibrant.
+                </Typography>
+                <Box>
+                  <Button 
+                    component={Link} 
+                    to="/about" 
+                    variant="contained" 
+                    color="primary" 
+                    size="large" 
+                    sx={{ py: 2, px: 6, fontSize: '1rem' }}
+                  >
+                    Learn More About Us
+                  </Button>
+                </Box>
+              </Stack>
             </Grid>
           </Grid>
         </Container>
       </Box>
       
-      {/* Programs Section */}
-      <Box component="section" sx={{ py: 15, bgcolor: '#fdfbf7' }}>
+      {/* SECTION: Programs */}
+      <Box component="section" sx={{ py: { xs: 10, md: 15 }, bgcolor: 'background.default' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 10 }}>
-            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 'bold', letterSpacing: 2 }}>Education</Typography>
-            <Typography variant="h3" component="h2" sx={{ mb: 2, color: 'info.main', fontFamily: 'Cinzel' }}>
-              Our Programs
+            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 'bold', letterSpacing: 3 }}>Curriculum</Typography>
+            <Typography variant="h2" sx={{ mb: 3, fontFamily: 'Cinzel', fontWeight: 800 }}>
+              Sacred Learning Paths
             </Typography>
-            <Box sx={{ width: 80, height: 4, bgcolor: 'primary.main', mx: 'auto' }} />
+            <Box sx={{ width: 80, height: 4, bgcolor: 'secondary.main', mx: 'auto', borderRadius: 2 }} />
           </Box>
           
           <Grid container spacing={4}>
@@ -104,115 +128,54 @@ const Home = () => {
         </Container>
       </Box>
       
-      {/* Get Involved Section */}
-      <Box component="section" sx={{ py: 15, position: 'relative', overflow: 'hidden', bgcolor: 'info.main', color: 'white' }}>
-        <Box 
-          sx={{ 
-            position: 'absolute', 
-            top: 0, 
-            right: 0, 
-            width: '40%', 
-            height: '100%', 
-            bgcolor: 'rgba(255,255,255,0.03)', 
-            transform: 'skewX(-20deg) translateX(20%)' 
-          }} 
-        />
-        
-        <Container maxWidth="lg">
-          <Grid container spacing={8} sx={{ alignItems: 'center' }}>
-            <Grid item xs={12} md={7}>
-              <Typography variant="h2" sx={{ mb: 4, fontFamily: 'Cinzel', color: 'white' }}>Get Involved</Typography>
-              <Typography variant="h5" sx={{ mb: 6, opacity: 0.9, fontWeight: 300, lineHeight: 1.6 }}>
-                Be a part of our journey to preserve the eternal dharma. Whether through volunteering, teaching, or financial support, every contribution creates a ripple of positive change.
-              </Typography>
-              
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
-                  <Box sx={{ p: 3, border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' }, transition: 'all 0.3s' }}>
-                    <Typography variant="h6" sx={{ color: 'primary.main', mb: 1 }}>Volunteer</Typography>
-                    <Typography variant="body2" sx={{ opacity: 0.7 }}>Lend your skills and time to our various community projects.</Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Box sx={{ p: 3, border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, '&:hover': { bgcolor: 'rgba(255,255,255,0.05)' }, transition: 'all 0.3s' }}>
-                    <Typography variant="h6" sx={{ color: 'secondary.main', mb: 1 }}>Sponsor a Student</Typography>
-                    <Typography variant="body2" sx={{ opacity: 0.7 }}>Provide the gift of education to those in need.</Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-              
-              <Button 
-                variant="contained" 
-                sx={{ 
-                  mt: 6,
-                  bgcolor: 'white', 
-                  color: 'info.main', 
-                  px: 8, 
-                  py: 2, 
-                  fontSize: '1.1rem',
-                  fontWeight: 'bold',
-                  '&:hover': { bgcolor: '#f5f5f5' }
-                }}
-              >
-                Start Your Journey
-              </Button>
-            </Grid>
-            
-            <Grid item xs={12} md={5}>
-              <Box 
-                sx={{ 
-                  p: 6, 
-                  bgcolor: 'rgba(255,255,255,0.05)', 
-                  borderRadius: 8, 
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255,255,255,0.1)'
-                }}
-              >
-                <Typography variant="h5" sx={{ mb: 4, textAlign: 'center', fontFamily: 'Cinzel' }}>Support the Mission</Typography>
-                <Box sx={{ textAlign: 'center' }}>
-                   <Typography variant="body1" sx={{ mb: 4, opacity: 0.8 }}>Your financial support helps us maintain our facilities and digital outreach.</Typography>
-                   <Button variant="contained" color="primary" fullWidth size="large">
-                     Donate Now
-                   </Button>
-                </Box>
-              </Box>
-            </Grid>
-          </Grid>
+      {/* SECTION: Quote */}
+      <Box sx={{ py: 15, bgcolor: 'primary.main', color: 'white', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <Box sx={{ position: 'absolute', top: -50, right: -50, fontSize: '20rem', opacity: 0.1, fontFamily: 'serif' }}>“</Box>
+        <Container maxWidth="md">
+          <Typography variant="h3" sx={{ fontStyle: 'italic', mb: 4, fontFamily: 'Cinzel', fontWeight: 400, lineHeight: 1.4 }}>
+            "Knowledge is that which liberates. The goal of education is not information, but the transformation of the soul."
+          </Typography>
+          <Box sx={{ width: 40, height: 2, bgcolor: 'white', mx: 'auto', mb: 3, opacity: 0.5 }} />
+          <Typography variant="h6" sx={{ letterSpacing: 4, fontWeight: 300 }}>ANCIENT VEDIC WISDOM</Typography>
         </Container>
       </Box>
 
-      {/* Contact Section */}
-      <Box component="section" sx={{ py: 15, bgcolor: 'white' }}>
+      {/* SECTION: Contact */}
+      <Box component="section" sx={{ py: { xs: 10, md: 15 }, bgcolor: 'white' }}>
         <Container maxWidth="lg">
-          <Grid container spacing={8}>
+          <Grid container spacing={10}>
             <Grid item xs={12} md={5}>
-              <Typography variant="h3" sx={{ mb: 4, color: 'info.main', fontFamily: 'Cinzel' }}>
-                Get in Touch
-              </Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary', mb: 6, fontSize: '1.2rem', lineHeight: 1.8 }}>
-                Have questions about our programs or want to get involved? We'd love to hear from you.
-              </Typography>
-              
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                  <Box sx={{ color: 'primary.main', fontSize: '1.5rem' }}>📍</Box>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Our Location</Typography>
-                    <Typography color="text.secondary">Kashi, Uttar Pradesh, India</Typography>
-                  </Box>
+              <Stack spacing={4}>
+                <Box>
+                  <Typography variant="h2" sx={{ mb: 2, fontFamily: 'Cinzel', fontWeight: 800 }}>Get in Touch</Typography>
+                  <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: '1.1rem' }}>
+                    Have questions about our programs or want to get involved? Our doors and hearts are always open.
+                  </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                  <Box sx={{ color: 'primary.main', fontSize: '1.5rem' }}>📧</Box>
-                  <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Email Address</Typography>
-                    <Typography color="text.secondary">info@sanatantrust.edu</Typography>
-                  </Box>
-                </Box>
-              </Box>
+                
+                <Stack spacing={3}>
+                  <Paper elevation={0} sx={{ p: 3, bgcolor: 'background.default', borderRadius: 4, display: 'flex', gap: 3, alignItems: 'center' }}>
+                    <Box sx={{ bgcolor: 'primary.main', p: 1.5, borderRadius: 2, color: 'white', display: 'flex' }}>📍</Box>
+                    <Box>
+                      <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>Our Location</Typography>
+                      <Typography variant="body2" color="text.secondary">Kashi, Uttar Pradesh, India</Typography>
+                    </Box>
+                  </Paper>
+                  <Paper elevation={0} sx={{ p: 3, bgcolor: 'background.default', borderRadius: 4, display: 'flex', gap: 3, alignItems: 'center' }}>
+                    <Box sx={{ bgcolor: 'secondary.main', p: 1.5, borderRadius: 2, color: 'white', display: 'flex' }}>📧</Box>
+                    <Box>
+                      <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>Email Us</Typography>
+                      <Typography variant="body2" color="text.secondary">info@sanatantrust.edu</Typography>
+                    </Box>
+                  </Paper>
+                </Stack>
+              </Stack>
             </Grid>
             
             <Grid item xs={12} md={7}>
-              <ContactForm />
+              <Paper elevation={0} sx={{ p: { xs: 4, md: 6 }, borderRadius: 8, bgcolor: 'background.default', border: '1px solid', borderColor: 'divider' }}>
+                <ContactForm />
+              </Paper>
             </Grid>
           </Grid>
         </Container>

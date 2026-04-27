@@ -32,7 +32,7 @@ const About = () => {
       {/* SECTION 1: Hero */}
       <Box 
         sx={{ 
-          py: { xs: 12, md: 18 }, 
+          py: { xs: 8, md: 10 }, 
           background: 'linear-gradient(135deg, #FF9933 0%, #FFB366 100%)', 
           color: 'white',
           textAlign: 'center',
@@ -82,7 +82,7 @@ const About = () => {
       </Box>
 
       {/* SECTION 2: Vision */}
-      <Box sx={{ py: { xs: 10, md: 15 }, bgcolor: 'background.paper' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'background.paper' }}>
         <Container maxWidth="lg">
           <Grid container spacing={8} alignItems="center">
             <Grid item xs={12} md={6}>
@@ -99,7 +99,7 @@ const About = () => {
               />
             </Grid>
             <Grid item xs={12} md={6}>
-              <Typography variant="h3" sx={{ color: 'info.main', mb: 2, fontFamily: 'Cinzel, serif', fontWeight: 700 }}>
+              <Typography variant="h3" sx={{ color: 'text.primary', mb: 2, fontFamily: 'Cinzel, serif', fontWeight: 700 }}>
                 Our Vision
               </Typography>
               <Box sx={{ width: 60, height: 4, bgcolor: 'primary.main', mb: 4 }} />
@@ -115,9 +115,9 @@ const About = () => {
       </Box>
 
       {/* SECTION 3: Mission */}
-      <Box sx={{ py: { xs: 10, md: 15 }, bgcolor: '#fafafa' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: '#fafafa' }}>
         <Container maxWidth="lg">
-          <Typography variant="h3" sx={{ textAlign: 'center', mb: 8, color: 'info.main', fontFamily: 'Cinzel, serif', fontWeight: 700 }}>
+          <Typography variant="h3" sx={{ textAlign: 'center', mb: 8, color: 'text.primary', fontFamily: 'Cinzel, serif', fontWeight: 700 }}>
             Our Mission
           </Typography>
           <Grid container spacing={4}>
@@ -164,14 +164,14 @@ const About = () => {
       </Box>
 
       {/* SECTION 4: Why This Matters */}
-      <Box sx={{ py: { xs: 10, md: 15 }, bgcolor: 'white' }}>
+      <Box sx={{ py: { xs: 6, md: 8 }, bgcolor: 'white' }}>
         <Container maxWidth="lg">
           <Grid container spacing={8} alignItems="center">
             <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
               <Box 
                 sx={{ 
                   p: { xs: 4, md: 6 }, 
-                  bgcolor: 'info.main', 
+                  bgcolor: 'primary.main', 
                   color: 'white', 
                   borderRadius: 8,
                   position: 'relative',
@@ -209,8 +209,8 @@ const About = () => {
       {/* SECTION 5: What We Do */}
       <Box 
         sx={{ 
-          py: { xs: 8, md: 12 }, 
-          background: 'linear-gradient(180deg, #00081d 0%, #00123d 100%)', 
+          py: { xs: 6, md: 8 }, 
+          background: 'linear-gradient(180deg, #e67e00 0%, #ff9933 100%)', 
           color: 'white',
           overflow: 'hidden'
         }}
@@ -308,7 +308,7 @@ const About = () => {
       </Box>
 
       {/* SECTION 6: Founder Message */}
-      <Box sx={{ py: { xs: 15, md: 20 }, bgcolor: 'white', position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ py: { xs: 8, md: 10 }, bgcolor: 'white', position: 'relative', overflow: 'hidden' }}>
         {/* Background Accent */}
         <Box 
           sx={{ 
@@ -345,7 +345,7 @@ const About = () => {
                 variant="h4" 
                 sx={{ 
                   fontStyle: 'italic', 
-                  color: 'info.main', 
+                  color: 'primary.dark', 
                   lineHeight: 1.5, 
                   mb: 5,
                   fontWeight: 400,

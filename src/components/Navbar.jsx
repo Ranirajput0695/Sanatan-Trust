@@ -40,7 +40,7 @@ const Navbar = () => {
   ];
 
   const drawer = (
-    <Box sx={{ textAlign: 'center', p: 3, width: 280, bgcolor: 'info.main', color: 'white', height: '100%' }}>
+    <Box sx={{ textAlign: 'center', p: 3, width: 280, bgcolor: 'primary.main', color: 'white', height: '100%' }}>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
         <IconButton onClick={handleDrawerToggle} sx={{ color: 'white' }}>
           <CloseIcon />
@@ -78,9 +78,9 @@ const Navbar = () => {
                 textAlign: 'center', 
                 borderRadius: 2, 
                 mb: 1,
-                color: location.pathname === item.path ? 'primary.main' : 'white',
-                bgcolor: location.pathname === item.path ? 'rgba(255, 153, 51, 0.1)' : 'transparent',
-                '&:hover': { bgcolor: 'rgba(255, 153, 51, 0.2)', color: 'primary.main' }
+                color: location.pathname === item.path ? 'secondary.main' : 'white',
+                bgcolor: location.pathname === item.path ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.2)', color: 'white' }
               }}
               onClick={handleDrawerToggle}
             >
@@ -96,11 +96,7 @@ const Navbar = () => {
         ))}
       </List>
 
-      <Box sx={{ mt: 4 }}>
-        <Button variant="contained" color="primary" fullWidth sx={{ py: 1.5, borderRadius: 2 }}>
-          Donate
-        </Button>
-      </Box>
+
     </Box>
   );
 
@@ -108,7 +104,7 @@ const Navbar = () => {
     <AppBar 
       position="fixed" 
       sx={{ 
-        bgcolor: trigger ? 'rgba(0, 0, 128, 0.95)' : 'rgba(0, 0, 128, 0.85)',
+        bgcolor: trigger ? 'rgba(230, 81, 0, 0.98)' : 'rgba(230, 81, 0, 0.9)',
         boxShadow: trigger ? 4 : 0,
         backdropFilter: 'blur(10px)',
         transition: 'all 0.3s ease-in-out',
@@ -160,32 +156,21 @@ const Navbar = () => {
                 component={NavLink}
                 to={item.path}
                 sx={{ 
-                  color: location.pathname === item.path ? 'primary.main' : 'rgba(255,255,255,0.85)', 
-                  fontWeight: location.pathname === item.path ? 700 : 500, 
+                  color: location.pathname === item.path ? 'white' : 'rgba(255,255,255,0.85)', 
+                  fontWeight: location.pathname === item.path ? 800 : 500, 
                   cursor: 'pointer',
                   textDecoration: 'none',
-                  '&:hover': { color: 'primary.main' },
+                  '&:hover': { color: 'white' },
                   transition: 'all 0.2s',
                   fontSize: '0.95rem',
-                  borderBottom: location.pathname === item.path ? '2px solid' : '2px solid transparent',
+                  borderBottom: location.pathname === item.path ? '2px solid white' : '2px solid transparent',
                   pb: 0.5
                 }}
               >
                 {item.name}
               </Typography>
             ))}
-            <Button 
-              variant="contained" 
-              color="primary" 
-              sx={{ 
-                boxShadow: 4, 
-                borderRadius: 100, 
-                px: 3,
-                fontWeight: 'bold'
-              }}
-            >
-              Donate
-            </Button>
+
           </Box>
 
           {/* Mobile Menu Icon */}
@@ -214,7 +199,7 @@ const Navbar = () => {
         }}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280, borderRadius: '20px 0 0 20px', bgcolor: 'info.main' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280, borderRadius: '20px 0 0 20px', bgcolor: '#E65100' },
         }}
       >
         {drawer}

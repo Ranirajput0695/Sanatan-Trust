@@ -1,86 +1,147 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Link, Divider } from '@mui/material';
+import { Box, Container, Grid, Typography, Link, Divider, Stack, IconButton, TextField, Button } from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import SendIcon from '@mui/icons-material/Send';
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: 'info.main', color: 'white', pt: 12, pb: 6 }}>
+    <Box sx={{ bgcolor: '#1A1A1A', color: 'white', pt: 15, pb: 6, position: 'relative', overflow: 'hidden' }}>
+      {/* Decorative background element */}
+      <Box sx={{ position: 'absolute', top: -100, right: -100, width: 400, height: 400, bgcolor: 'primary.main', opacity: 0.03, borderRadius: '50%', filter: 'blur(100px)' }} />
+      
       <Container maxWidth="lg">
         <Grid container spacing={8} sx={{ mb: 10 }}>
+          {/* Column 1: Brand & Social */}
           <Grid item xs={12} md={4}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <Box 
-                sx={{ 
-                  width: 36, 
-                  height: 36, 
-                  bgcolor: 'secondary.main', 
-                  borderRadius: '50%', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  mr: 1.5 
-                }}
-              >
-                <Typography sx={{ fontWeight: 'bold', color: 'white' }}>ॐ</Typography>
+            <Box sx={{ mb: 4 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                <Box 
+                  sx={{ 
+                    width: 40, 
+                    height: 40, 
+                    bgcolor: 'primary.main', 
+                    borderRadius: 2, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    mr: 2,
+                    boxShadow: '0 5px 15px rgba(230, 81, 0, 0.4)'
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 900, color: 'white', fontSize: '1.2rem' }}>ॐ</Typography>
+                </Box>
+                <Typography variant="h5" sx={{ fontFamily: 'Cinzel', fontWeight: 900, letterSpacing: 1 }}>SANATAN TRUST</Typography>
               </Box>
-              <Typography variant="h5" sx={{ fontFamily: 'Cinzel', fontWeight: 'bold' }}>Sanatan Trust</Typography>
+              <Typography variant="body1" sx={{ opacity: 0.6, lineHeight: 1.8, mb: 4 }}>
+                Dedicated to restoring the eternal wisdom of Sanatana Dharma through holistic education, character building, and community service.
+              </Typography>
+              
+              <Stack direction="row" spacing={1.5}>
+                {[<FacebookIcon />, <TwitterIcon />, <InstagramIcon />, <YouTubeIcon />].map((icon, index) => (
+                  <IconButton 
+                    key={index}
+                    sx={{ 
+                      bgcolor: 'rgba(255,255,255,0.05)', 
+                      color: 'white',
+                      transition: 'all 0.3s',
+                      '&:hover': { bgcolor: 'primary.main', transform: 'translateY(-5px)' }
+                    }}
+                  >
+                    {icon}
+                  </IconButton>
+                ))}
+              </Stack>
             </Box>
-            <Typography variant="body1" sx={{ opacity: 0.7, lineHeight: 1.8 }}>
-              Preserving and promoting the eternal wisdom of Sanatana Dharma for a balanced and purposeful life.
-            </Typography>
           </Grid>
           
+          {/* Column 2: Quick Links */}
           <Grid item xs={6} md={2}>
-            <Typography variant="h6" sx={{ mb: 4, fontWeight: 'bold' }}>Links</Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              {['About Us', 'Our Programs', 'Donation', 'Events'].map(link => (
+            <Typography variant="h6" sx={{ mb: 4, fontWeight: 900, fontFamily: 'Cinzel', color: 'primary.main' }}>Links</Typography>
+            <Stack spacing={2}>
+              {['About Us', 'Our Programs', 'News & Events', 'Volunteer'].map(link => (
                 <Link 
                   key={link} 
                   href="#" 
                   color="inherit" 
                   underline="none" 
-                  sx={{ opacity: 0.7, '&:hover': { opacity: 1, color: 'primary.main' } }}
+                  sx={{ opacity: 0.6, transition: '0.3s', '&:hover': { opacity: 1, color: 'primary.main', transform: 'translateX(5px)' } }}
                 >
                   {link}
                 </Link>
               ))}
-            </Box>
+            </Stack>
           </Grid>
 
+          {/* Column 3: Programs */}
           <Grid item xs={6} md={2}>
-            <Typography variant="h6" sx={{ mb: 4, fontWeight: 'bold' }}>Programs</Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              {['Vedic Studies', 'Sanskrit Language', 'Meditation', 'Philosophy'].map(link => (
+            <Typography variant="h6" sx={{ mb: 4, fontWeight: 900, fontFamily: 'Cinzel', color: 'primary.main' }}>Courses</Typography>
+            <Stack spacing={2}>
+              {['Vedic Studies', 'Sanskrit Bhasha', 'Dhyana Yoga', 'Dharma Shastra', 'Vastu Vidya'].map(link => (
                 <Link 
                   key={link} 
                   href="#" 
                   color="inherit" 
                   underline="none" 
-                  sx={{ opacity: 0.7, '&:hover': { opacity: 1, color: 'primary.main' } }}
+                  sx={{ opacity: 0.6, transition: '0.3s', '&:hover': { opacity: 1, color: 'primary.main', transform: 'translateX(5px)' } }}
                 >
                   {link}
                 </Link>
               ))}
-            </Box>
+            </Stack>
           </Grid>
 
+          {/* Column 4: Newsletter */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ mb: 4, fontWeight: 'bold' }}>Contact</Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, opacity: 0.7 }}>
-              <Typography>📍 Kashi, Uttar Pradesh, India</Typography>
-              <Typography>📧 info@sanatantrust.edu</Typography>
-              <Typography>📞 +91 98765 43210</Typography>
+            <Typography variant="h6" sx={{ mb: 4, fontWeight: 900, fontFamily: 'Cinzel', color: 'primary.main' }}>Newsletter</Typography>
+            <Typography variant="body2" sx={{ opacity: 0.6, mb: 3 }}>
+              Subscribe to receive weekly insights into Vedic wisdom and trust updates.
+            </Typography>
+            <Box sx={{ position: 'relative' }}>
+              <TextField 
+                fullWidth 
+                placeholder="Your Email" 
+                variant="outlined" 
+                size="small"
+                sx={{ 
+                  '& .MuiOutlinedInput-root': { 
+                    bgcolor: 'rgba(255,255,255,0.05)', 
+                    color: 'white',
+                    borderRadius: 2,
+                    pr: 6,
+                    '& fieldset': { borderColor: 'rgba(255,255,255,0.1)' },
+                    '&:hover fieldset': { borderColor: 'primary.main' }
+                  }
+                }}
+              />
+              <IconButton 
+                sx={{ 
+                  position: 'absolute', right: 4, top: 4, 
+                  bgcolor: 'primary.main', color: 'white', borderRadius: 1.5,
+                  '&:hover': { bgcolor: 'primary.dark' } 
+                }}
+              >
+                <SendIcon fontSize="small" />
+              </IconButton>
             </Box>
           </Grid>
         </Grid>
         
-        <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)', mb: 4 }} />
+        <Divider sx={{ borderColor: 'rgba(255,255,255,0.05)', mb: 4 }} />
         
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', opacity: 0.5 }}>
-          <Typography variant="body2">© 2026 Sanatana Dharma Educational Trust. All rights reserved.</Typography>
-          <Box sx={{ display: 'flex', gap: 4 }}>
-            <Link href="#" color="inherit" underline="none">Privacy Policy</Link>
-            <Link href="#" color="inherit" underline="none">Terms of Service</Link>
-          </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 3 }}>
+          <Typography variant="body2" sx={{ opacity: 0.4 }}>
+            © 2026 Sanatana Dharma Educational Trust. All rights reserved.
+          </Typography>
+          <Stack direction="row" spacing={4}>
+            {['Privacy Policy', 'Terms of Use', 'Cookies'].map(item => (
+              <Link key={item} href="#" color="inherit" underline="none" sx={{ opacity: 0.4, fontSize: '0.85rem', '&:hover': { opacity: 1 } }}>
+                {item}
+              </Link>
+            ))}
+          </Stack>
         </Box>
       </Container>
     </Box>

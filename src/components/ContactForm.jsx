@@ -59,65 +59,67 @@ const ContactForm = () => {
   };
 
   return (
-    <Paper elevation={0} sx={{ p: { xs: 3, md: 6 }, borderRadius: 8, bgcolor: '#fdfbf7', border: '1px solid rgba(0,0,0,0.05)' }}>
-      <Typography variant="h4" sx={{ mb: 4, color: 'info.main', fontWeight: 'bold', fontFamily: 'Cinzel' }}>
-        Send us a Message
-      </Typography>
+    <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <TextField
+        fullWidth
+        label="Full Name"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        variant="outlined"
+        sx={{ 
+          '& .MuiOutlinedInput-root': { borderRadius: 3 }
+        }}
+      />
       
-      <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-        <TextField
-          fullWidth
-          label="Full Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          variant="outlined"
-          sx={{ bgcolor: 'white' }}
-        />
-        
-        <TextField
-          fullWidth
-          label="Email Address"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          variant="outlined"
-          sx={{ bgcolor: 'white' }}
-        />
-        
-        <TextField
-          fullWidth
-          label="Your Message"
-          name="message"
-          multiline
-          rows={4}
-          value={formData.message}
-          onChange={handleChange}
-          required
-          variant="outlined"
-          sx={{ bgcolor: 'white' }}
-        />
-        
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          size="large"
-          disabled={loading}
-          endIcon={<SendIcon />}
-          sx={{ 
-            py: 1.5, 
-            fontSize: '1.1rem', 
-            boxShadow: 4,
-            '&:hover': { boxShadow: 8, bgcolor: 'primary.dark' }
-          }}
-        >
-          {loading ? 'Sending...' : 'Submit Message'}
-        </Button>
-      </Box>
+      <TextField
+        fullWidth
+        label="Email Address"
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        variant="outlined"
+        sx={{ 
+          '& .MuiOutlinedInput-root': { borderRadius: 3 }
+        }}
+      />
+      
+      <TextField
+        fullWidth
+        label="Your Message"
+        name="message"
+        multiline
+        rows={4}
+        value={formData.message}
+        onChange={handleChange}
+        required
+        variant="outlined"
+        sx={{ 
+          '& .MuiOutlinedInput-root': { borderRadius: 3 }
+        }}
+      />
+      
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        size="large"
+        disabled={loading}
+        endIcon={<SendIcon />}
+        sx={{ 
+          py: 2, 
+          fontSize: '1rem', 
+          fontWeight: 800,
+          borderRadius: 3,
+          boxShadow: '0 10px 20px rgba(230, 81, 0, 0.2)',
+          '&:hover': { boxShadow: '0 15px 30px rgba(230, 81, 0, 0.3)' }
+        }}
+      >
+        {loading ? 'Sending...' : 'Send Message'}
+      </Button>
 
       <Snackbar 
         open={status.open} 
@@ -129,7 +131,7 @@ const ContactForm = () => {
           {status.message}
         </Alert>
       </Snackbar>
-    </Paper>
+    </Box>
   );
 };
 

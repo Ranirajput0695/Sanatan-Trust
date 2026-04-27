@@ -3,30 +3,30 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF9933', // Saffron
-      light: '#ffb366',
-      dark: '#e67e00',
+      main: '#E65100', // Deep Saffron
+      light: '#FF8A50',
+      dark: '#AC1900',
       contrastText: '#fff',
     },
     secondary: {
-      main: '#138808', // Green
-      light: '#1db90b',
-      dark: '#0e6406',
+      main: '#2E7D32', // Forest Green
+      light: '#60ad5e',
+      dark: '#005005',
       contrastText: '#fff',
     },
     info: {
-      main: '#000080', // Blue
-      light: '#0000cc',
-      dark: '#00004d',
+      main: '#1A237E', // Deep Indigo (used minimally)
+      light: '#534bae',
+      dark: '#000051',
       contrastText: '#fff',
     },
     background: {
-      default: '#FDFBF7', // Cream
+      default: '#FFFAF0', // Floral White (Creamy)
       paper: '#ffffff',
     },
     text: {
-      primary: '#333333',
-      secondary: '#666666',
+      primary: '#1A1A1A',
+      secondary: '#4A4A4A',
     },
   },
   typography: {
