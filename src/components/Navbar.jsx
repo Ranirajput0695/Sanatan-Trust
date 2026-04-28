@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
-import { 
-  AppBar, 
-  Toolbar, 
-  Typography, 
-  Button, 
-  Container, 
-  Box, 
-  IconButton, 
-  useScrollTrigger, 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemButton, 
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container,
+  Box,
+  IconButton,
+  useScrollTrigger,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
   ListItemText,
   Divider
 } from '@mui/material';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import logo from '../assets/logo.jpeg';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -46,24 +47,21 @@ const Navbar = () => {
           <CloseIcon />
         </IconButton>
       </Box>
-      
+
       <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Box 
-          sx={{ 
-            width: 50, 
-            height: 50, 
-            bgcolor: 'secondary.main', 
-            borderRadius: '50%', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
+        <Box
+          component="img"
+          src={logo}
+          alt="Sanatan Trust Logo"
+          sx={{
+            height: 80,
+            width: 'auto',
             mb: 2,
-            boxShadow: 3
+            mixBlendMode: 'multiply',
+            filter: 'contrast(1.1)',
+            clipPath: 'inset(0 0 0 10px)'
           }}
-        >
-          <Typography sx={{ color: 'white', fontWeight: 'bold', fontSize: '1.5rem' }}>ॐ</Typography>
-        </Box>
-        <Typography variant="h6" sx={{ fontFamily: 'Cinzel', fontWeight: 'bold' }}>Sanatan Trust</Typography>
+        />
       </Box>
 
       <Divider sx={{ mb: 3, borderColor: 'rgba(255,255,255,0.1)' }} />
@@ -71,12 +69,12 @@ const Navbar = () => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.name} disablePadding>
-            <ListItemButton 
+            <ListItemButton
               component={NavLink}
               to={item.path}
-              sx={{ 
-                textAlign: 'center', 
-                borderRadius: 2, 
+              sx={{
+                textAlign: 'center',
+                borderRadius: 2,
                 mb: 1,
                 color: location.pathname === item.path ? 'secondary.main' : 'white',
                 bgcolor: location.pathname === item.path ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
@@ -84,12 +82,12 @@ const Navbar = () => {
               }}
               onClick={handleDrawerToggle}
             >
-              <ListItemText 
-                primary={item.name} 
-                primaryTypographyProps={{ 
+              <ListItemText
+                primary={item.name}
+                primaryTypographyProps={{
                   fontWeight: 600,
                   fontSize: '1.1rem'
-                }} 
+                }}
               />
             </ListItemButton>
           </ListItem>
@@ -101,9 +99,9 @@ const Navbar = () => {
   );
 
   return (
-    <AppBar 
-      position="fixed" 
-      sx={{ 
+    <AppBar
+      position="fixed"
+      sx={{
         bgcolor: trigger ? 'rgba(230, 81, 0, 0.98)' : 'rgba(230, 81, 0, 0.9)',
         boxShadow: trigger ? 4 : 0,
         backdropFilter: 'blur(10px)',
@@ -117,47 +115,30 @@ const Navbar = () => {
         <Toolbar disableGutters>
           {/* Logo Section */}
           <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, textDecoration: 'none', color: 'inherit' }}>
-            <Box 
-              sx={{ 
-                width: 40, 
-                height: 40, 
-                bgcolor: 'secondary.main', 
-                borderRadius: '50%', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center',
-                mr: 1.5,
-                boxShadow: 2
-              }}
-            >
-              <Typography sx={{ color: 'white', fontWeight: 'bold', fontSize: '1.2rem' }}>ॐ</Typography>
-            </Box>
-            <Typography
-              variant="h6"
-              noWrap
+            <Box
+              component="img"
+              src={logo}
+              alt="Sanatan Trust Logo"
               sx={{
-                fontWeight: 800,
-                letterSpacing: '.1rem',
-                color: 'white',
-                textDecoration: 'none',
-                fontFamily: 'Cinzel',
-                fontSize: { xs: '1.2rem', md: '1.5rem' }
+                height: { xs: 55, md: 70 },
+                width: 'auto',
+                mixBlendMode: 'multiply',
+                filter: 'contrast(1.1)',
+                clipPath: 'inset(0 0 0 10px)'
               }}
-            >
-              Sanatan Trust
-            </Typography>
+            />
           </Box>
 
           {/* Desktop Menu */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 4 }}>
             {navItems.map((item) => (
-              <Typography 
+              <Typography
                 key={item.name}
                 component={NavLink}
                 to={item.path}
-                sx={{ 
-                  color: location.pathname === item.path ? 'white' : 'rgba(255,255,255,0.85)', 
-                  fontWeight: location.pathname === item.path ? 800 : 500, 
+                sx={{
+                  color: location.pathname === item.path ? 'white' : 'rgba(255,255,255,0.85)',
+                  fontWeight: location.pathname === item.path ? 800 : 500,
                   cursor: 'pointer',
                   textDecoration: 'none',
                   '&:hover': { color: 'white' },
