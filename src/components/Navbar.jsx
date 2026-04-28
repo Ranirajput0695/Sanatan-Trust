@@ -41,39 +41,16 @@ const Navbar = () => {
   ];
 
   const drawer = (
-    <Box sx={{ textAlign: 'center', p: 3, width: 280, bgcolor: 'primary.main', color: 'white', height: '100%' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
-        <IconButton onClick={handleDrawerToggle} sx={{ color: 'white' }}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-
-      <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Box
-          component="img"
-          src={logo}
-          alt="Sanatan Trust Logo"
-          sx={{
-            height: 80,
-            width: 'auto',
-            mb: 2,
-            mixBlendMode: 'multiply',
-            filter: 'contrast(1.1)',
-            clipPath: 'inset(0 0 0 10px)'
-          }}
-        />
-      </Box>
-
-      <Divider sx={{ mb: 3, borderColor: 'rgba(255,255,255,0.1)' }} />
-
-      <List>
+    <Box sx={{ p: 4, bgcolor: 'primary.main', color: 'white', display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <List sx={{ pt: 0 }}>
         {navItems.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton
               component={NavLink}
               to={item.path}
               sx={{
-                textAlign: 'center',
+                textAlign: 'left',
+                py: 1.5,
                 borderRadius: 2,
                 mb: 1,
                 color: location.pathname === item.path ? 'secondary.main' : 'white',
@@ -85,16 +62,34 @@ const Navbar = () => {
               <ListItemText
                 primary={item.name}
                 primaryTypographyProps={{
-                  fontWeight: 600,
-                  fontSize: '1.1rem'
+                  fontWeight: 700,
+                  fontSize: '1.2rem',
                 }}
               />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-
-
+      <Button
+        variant="contained"
+        component={NavLink}
+        to="/contact"
+        onClick={handleDrawerToggle}
+        sx={{
+          bgcolor: 'white',
+          color: 'primary.main',
+          fontWeight: 800,
+          fontSize: '1.1rem',
+          py: 1.5,
+          borderRadius: '12px',
+          textTransform: 'none',
+          '&:hover': {
+            bgcolor: 'rgba(255, 255, 255, 0.9)'
+          }
+        }}
+      >
+        Contact Us
+      </Button>
     </Box>
   );
 
@@ -163,7 +158,7 @@ const Navbar = () => {
               onClick={handleDrawerToggle}
               sx={{ color: 'white' }}
             >
-              <MenuIcon />
+              {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
           </Box>
         </Toolbar>
@@ -172,7 +167,7 @@ const Navbar = () => {
       {/* Mobile Drawer */}
       <Drawer
         variant="temporary"
-        anchor="right"
+        anchor="top"
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
@@ -180,7 +175,20 @@ const Navbar = () => {
         }}
         sx={{
           display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280, borderRadius: '20px 0 0 20px', bgcolor: '#E65100' },
+          '& .MuiDrawer-paper': { 
+            boxSizing: 'border-box', 
+            width: '90%', 
+            maxWidth: 350, 
+            margin: '80px auto 0 auto', 
+            borderRadius: '16px', 
+            bgcolor: '#E65100',
+            border: '1px solid rgba(255,255,255,0.2)',
+            height: 'auto'
+          },
+          '& .MuiBackdrop-root': {
+            bgcolor: 'rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(3px)'
+          }
         }}
       >
         {drawer}
